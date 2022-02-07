@@ -23,6 +23,9 @@ public class AdministratorController {
 		return new InsertAdministratorForm();
 	}
 
+	/**
+	 * @return
+	 */
 	@RequestMapping("/toInsert")
 	public String toInsert() {
 		return "insert";
