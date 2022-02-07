@@ -28,28 +28,21 @@ public class AdministratorRepository {
 	private NamedParameterJdbcTemplate template;
 
 	public void insert(Administrator administrator) {
-		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
 
-		if (administrator.getId() == null) {
-			String insertSql = "INSERT INTO administrator(name,mailAddress,password) VALUES(:name,:mailAddress,:password)";
-			template.update(insertSql, param);
-		} else {
-			String updateSql = "UPDATE administrator SET name=:name,mailAddress=:mailAddress,password=:pasword WHERE id=:id";
-			template.update(updateSql, param);
-		}
+		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
+		String insertSql = "INSERT INTO administrators(name,mailAddress,password) VALUES(:name,:mailAddress,:password)";
+		template.update(insertSql, param);
 
 	}
 
-	public String findByMailAddressAndPassword(String mailAddress, String pasword) {
-		String sql = "SELECT id,name,mailAddress,password FROM administrator WHERE mailAddress=:mailAddress OR password=:password";
+	public Administrator findByMailAddressAndPassword(String mailAddress, String pasword) {
+		String sql = "SELECT id,name,mailAddress,password FROM administratorss WHERE mailAddress=:mailAddress OR password=:password";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("pasword",
 				pasword);
 		List<Administrator> administratorList = template.query(sql, param, ADMINISTRATOR_ROW_MAPPER);
 		if (administratorList.size() == 0) {
 			return null;
 		}
-
-		return "Administrator";
-
+		return administratorList.get(0);
 	}
 }

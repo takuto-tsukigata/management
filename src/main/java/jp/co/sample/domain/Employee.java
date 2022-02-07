@@ -4,6 +4,45 @@ import java.util.Date;
 
 public class Employee {
 
+	private Integer id;
+	private String name;
+	private String image;
+	private String gender;
+	private java.util.Date hireDate;
+	private String mailAddress;
+	private String zipCode;
+	private String address;
+	private String telephone;
+	private Integer salary;
+	private String characteristic;
+	private Integer dependentsCount;
+
+	public Employee() {
+
+	}
+
+	public Employee(Integer id, String name, String image, String gender, Date hireDate, String mailAddress,
+			String zipCode, String address, String telephone, Integer salary, String characteristic,
+			Integer dependentsCount) {
+		/**
+		 *
+		 * Employeeクラスの属性です
+		 *
+		 */
+		this.id = id;
+		this.name = name;
+		this.image = image;
+		this.gender = gender;
+		this.hireDate = hireDate;
+		this.mailAddress = mailAddress;
+		this.zipCode = zipCode;
+		this.address = address;
+		this.telephone = telephone;
+		this.salary = salary;
+		this.characteristic = characteristic;
+		this.dependentsCount = dependentsCount;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -97,44 +136,6 @@ public class Employee {
 	}
 
 	public void setDependentsCount(Integer dependentsCount) {
-		this.dependentsCount = dependentsCount;
-	}
-
-	private Integer id;
-	private String name;
-	private String image;
-	private String gender;
-	private java.util.Date hireDate;
-	private String mailAddress;
-	private String zipCode;
-	private String address;
-	private String telephone;
-	private Integer salary;
-	private String characteristic;
-	private Integer dependentsCount;
-
-	Employee() {
-
-	}
-
-	Employee(Integer id, String name, String image, String gender, Date hireDate, String mailAddress, String zipCode,
-			String address, String telephone, Integer salary, String characteristic, Integer dependentsCount) {
-		/**
-		 *
-		 * Employeeクラスの属性です
-		 *
-		 */
-		this.id = id;
-		this.name = name;
-		this.image = image;
-		this.gender = gender;
-		this.hireDate = hireDate;
-		this.mailAddress = mailAddress;
-		this.zipCode = zipCode;
-		this.address = address;
-		this.telephone = telephone;
-		this.salary = salary;
-		this.characteristic = characteristic;
 		this.dependentsCount = dependentsCount;
 	}
 

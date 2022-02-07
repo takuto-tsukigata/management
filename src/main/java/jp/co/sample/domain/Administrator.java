@@ -2,6 +2,29 @@ package jp.co.sample.domain;
 
 public class Administrator {
 
+	/**
+	 *
+	 * Administratorの属性
+	 *
+	 */
+
+	private Integer id;
+	private String name;
+	private String mailAddress;
+	private String password;
+
+	public Administrator() {
+
+	}
+
+	public Administrator(Integer id, String name, String mailAddress, String password) {
+
+		this.id = id;
+		this.name = name;
+		this.mailAddress = mailAddress;
+		this.password = password;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -31,28 +54,6 @@ public class Administrator {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	/**
-	 *
-	 * Administratorの属性
-	 *
-	 */
-	private Integer id;
-	private String name;
-	private String mailAddress;
-	private String password;
-
-	public Administrator() {
-
-	}
-
-	public Administrator(Integer id, String name, String mailAddress, String password) {
-
-		this.id = id;
-		this.name = name;
-		this.mailAddress = mailAddress;
 		this.password = password;
 	}
 
