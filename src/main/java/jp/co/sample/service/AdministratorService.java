@@ -18,6 +18,11 @@ public class AdministratorService {
 		administratorRepository.insert(administrator);
 	}
 
+	/**
+	 * @param mailAddress
+	 * @param password
+	 * @return
+	 */
 	public Administrator login(String mailAddress, String password) {
 		return administratorRepository.findByMailAddressAndPassword(mailAddress, password);
 
