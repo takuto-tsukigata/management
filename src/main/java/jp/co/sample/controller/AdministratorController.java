@@ -9,7 +9,7 @@ import jp.co.sample.form.InsertAdministratorForm;
 import jp.co.sample.service.AdministratorService;
 
 @Controller
-@RequestMapping("/administrator")
+@RequestMapping("")
 public class AdministratorController {
 
 	@Autowired
@@ -28,6 +28,6 @@ public class AdministratorController {
 	 */
 	@RequestMapping("/toInsert")
 	public String toInsert() {
-		return "insert";
+		return "administrator/insert";
 	}
 }
