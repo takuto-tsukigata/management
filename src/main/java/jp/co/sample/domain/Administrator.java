@@ -44,11 +44,11 @@ public class Administrator {
 	private String mailAddress;
 	private String password;
 
-	Administrator() {
+	public Administrator() {
 
 	}
 
-	Administrator(Integer id, String name, String mailAddress, String password) {
+	public Administrator(Integer id, String name, String mailAddress, String password) {
 
 		this.id = id;
 		this.name = name;
