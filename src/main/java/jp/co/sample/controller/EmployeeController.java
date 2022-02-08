@@ -38,4 +38,12 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		return "employee/detail";
 	}
+
+	@RequestMapping("/update")
+	public String update(UpdateEmployee form) {
+		Employee employee = employeeService.showDetail(Integer.valueOf(form.getId()));
+		employee.setDependentsCount(Integer.valueOf(form.getDependentsCount()));
+		employeeService.update(employee);
+		return "redirect:/employee/showList";
+	}
 }
