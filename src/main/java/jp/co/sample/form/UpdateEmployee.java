@@ -3,7 +3,7 @@ package jp.co.sample.form;
 public class UpdateEmployee {
 
 	private String id;
-	private String deoendentsCount;
+	private String dependentsCount;
 
 	public String getId() {
 		return id;
@@ -13,17 +13,17 @@ public class UpdateEmployee {
 		this.id = id;
 	}
 
-	public String getDeoendentsCount() {
-		return deoendentsCount;
+	public String getDependentsCount() {
+		return dependentsCount;
 	}
 
-	public void setDeoendentsCount(String deoendentsCount) {
-		this.deoendentsCount = deoendentsCount;
+	public void setDependentsCount(String dependentsCount) {
+		this.dependentsCount = dependentsCount;
 	}
 
 	@Override
 	public String toString() {
-		return "UpdateEmployee [id=" + id + ", deoendentsCount=" + deoendentsCount + "]";
+		return "UpdateEmployee [id=" + id + ", dependentsCount=" + dependentsCount + "]";
 	}
 
 }
