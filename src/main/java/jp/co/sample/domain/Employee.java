@@ -14,7 +14,7 @@ public class Employee {
 	private String address;
 	private String telephone;
 	private Integer salary;
-	private String characteristic;
+	private String characteristics;
 	private Integer dependentsCount;
 
 	public Employee() {
@@ -22,7 +22,7 @@ public class Employee {
 	}
 
 	public Employee(Integer id, String name, String image, String gender, Date hireDate, String mailAddress,
-			String zipCode, String address, String telephone, Integer salary, String characteristic,
+			String zipCode, String address, String telephone, Integer salary, String characteristics,
 			Integer dependentsCount) {
 		super();
 		this.id = id;
@@ -35,7 +35,7 @@ public class Employee {
 		this.address = address;
 		this.telephone = telephone;
 		this.salary = salary;
-		this.characteristic = characteristic;
+		this.characteristics = characteristics;
 		this.dependentsCount = dependentsCount;
 	}
 
@@ -119,12 +119,12 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public String getCharacteristic() {
-		return characteristic;
+	public String getCharacteristics() {
+		return characteristics;
 	}
 
-	public void setCharacteristic(String characteristic) {
-		this.characteristic = characteristic;
+	public void setCharacteristics(String characteristics) {
+		this.characteristics = characteristics;
 	}
 
 	public Integer getDependentsCount() {
@@ -139,7 +139,7 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
 				+ hireDate + ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address
-				+ ", telephone=" + telephone + ", salary=" + salary + ", characteristic=" + characteristic
+				+ ", telephone=" + telephone + ", salary=" + salary + ", characteristics=" + characteristics
 				+ ", dependentsCount=" + dependentsCount + "]";
 	}
 
