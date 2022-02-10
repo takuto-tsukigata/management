@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,9 @@ import jp.co.sample.service.EmployeeService;
 public class EmployeeController {
 
 	@Autowired
+	private HttpSession session;
+
+	@Autowired
 	private EmployeeService employeeService;
 
 	@ModelAttribute
@@ -30,6 +35,9 @@ public class EmployeeController {
 
 	@RequestMapping("/showList")
 	public String showList(Model model) {
+		if (session.getAttribute("administratorName") == null) {
+			return "redirect:/";
+		}
 		List<Employee> employeeList = employeeService.showList();
 		model.addAttribute("employeeList", employeeList);
 		return "employee/list";
@@ -45,6 +53,9 @@ public class EmployeeController {
 
 	@RequestMapping("/update")
 	public String update(@Validated UpdateEmployee form, BindingResult result, Model model) {
+		if (session.getAttribute("administratorName") == null) {
+			return "redirect:/";
+		}
 		if (result.hasErrors()) {
 			Employee employee = employeeService.showDetail(Integer.valueOf(form.getId()));
 			model.addAttribute("employee", employee);
