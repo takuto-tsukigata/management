@@ -59,7 +59,7 @@ public class AdministratorController {
 	@RequestMapping("/insert")
 	public String insert(@Validated InsertAdministratorForm form, BindingResult result) {
 		if (result.hasErrors()) {
-			return "administrator/insert";
+			return toInsert();
 		}
 
 		Administrator administrator = new Administrator();
@@ -80,7 +80,7 @@ public class AdministratorController {
 			model.addAttribute("loginError", "メールアドレスまたはパスワードが不正です");
 			return toLogin();
 		}
-		Administrator administrator = administratorService.login("mailAddress", "password");
+		Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
 
 		if (administrator == null) {
 			return "administrator/login";

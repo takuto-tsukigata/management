@@ -19,11 +19,27 @@ public class EmployeeRepository {
 	@Autowired
 	private NamedParameterJdbcTemplate template;
 
-	private static final RowMapper<Employee> EMPLOYEE_ROW_MAPPER = new BeanPropertyRowMapper<>(Employee.class);
+	private static final RowMapper<Employee> Employee_ROW_MAPPER = (rs, i) -> {
+		Employee employee = new Employee();
+		employee.setId(rs.getInt("id"));
+		employee.setName(rs.getString("name"));
+		employee.setHireDate(rs.getTimestamp("hire_date"));
+		employee.setGender(rs.getString("gender"));
+		employee.setImage(rs.getString("image"));
+		employee.setZipCode(rs.getString("zip_code"));
+		employee.setAddress(rs.getString("address"));
+		employee.setTelephone(rs.getString("telephone"));
+		employee.setMailAddress(rs.getString("mail_address"));
+		employee.setSalary(rs.getInt("salary"));
+		employee.setCharacteristics(rs.getString("characteristics"));
+		employee.setDependentsCount(rs.getInt("dependents_count"));
+
+		return employee;
+	};;
 
 	public List<Employee> findAll() {
 		String findAllSql = "SELECT * FROM employees ORDER BY hire_date DESC;";
-		List<Employee> employeeList = template.query(findAllSql, EMPLOYEE_ROW_MAPPER);
+		List<Employee> employeeList = template.query(findAllSql, Employee_ROW_MAPPER);
 		return employeeList;
 	}
 
@@ -31,7 +47,7 @@ public class EmployeeRepository {
 
 		String loadSql = "SELECT * FROM employees WHERE id=:id;";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
-		Employee employee = template.queryForObject(loadSql, param, EMPLOYEE_ROW_MAPPER);
+		Employee employee = template.queryForObject(loadSql, param, Employee_ROW_MAPPER);
 		return employee;
 	}
 
